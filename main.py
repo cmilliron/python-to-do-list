@@ -2,6 +2,7 @@ user_prompt: str = "Type add, show, edit, delete, complete, or exit: "
 # todos = ["Clean\n", "Cook\n", "Mow the lawn\n"]
 
 def print_list(todo_list):
+    # list_for_print = [item.strip('\n') for item in todo_list]
     for i, item in enumerate(todo_list):
         item = item.strip("\n")
         print(f"{i + 1} - {item}")
