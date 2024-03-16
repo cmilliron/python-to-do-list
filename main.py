@@ -10,16 +10,14 @@ def print_list(todo_list):
 
 
 def get_todos_from_file():
-    file = open("files/todos.txt", "r")
-    content = file.readlines()
-    file.close()
+    with open("files/todos.txt", "r") as file:
+        content = file.readlines()
     return content
 
 
 def save_todos_to_files(todo_list):
-    file = open("files/todos.txt", "w")
-    file.writelines(todo_list)
-    file.close()
+    with open("files/todos.txt", "w") as file:
+        file.writelines(todo_list)
 
 
 def show_list():
