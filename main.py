@@ -28,17 +28,17 @@ def show_list():
 
 while True:
     user_action = input(user_prompt).strip()
-    if "add" in user_action[:3]:
+    if user_action.startswith("add"):
         todos = get_todos_from_file()
         # todo = input("Enter a todo: ")
         todo = user_action[4:]
         todos.append(todo + "\n")
         save_todos_to_files(todos)
-    elif 'show' in user_action[:4]:
+    elif user_action.startswith('show'):
         show_list()
-    elif "exit" in user_action[:4]:
+    elif user_action.startswith('exit'):
         break
-    elif "edit" in user_action[:4]:
+    elif user_action.startswith('edit'):
         todos = get_todos_from_file()
         # item_number = int(input("Number of the todo to edit: "))
         item_number = int(user_action[5:])
@@ -48,7 +48,7 @@ while True:
         print(f"Item to edit: {item_to_edit}")
         todos[item_index] = input("Enter edited todo: ") + "\n"
         save_todos_to_files(todos)
-    elif "complete" in user_action[:8]:
+    elif user_action.startswith('complete'):
         todos = get_todos_from_file()
         # item_number = int(input("What task have you completed: "))
         item_number = int(user_action[9:])
