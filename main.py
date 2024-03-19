@@ -39,24 +39,38 @@ while True:
     elif user_action.startswith('exit'):
         break
     elif user_action.startswith('edit'):
-        todos = get_todos_from_file()
-        # item_number = int(input("Number of the todo to edit: "))
-        item_number = int(user_action[5:])
-        item_index = item_number - 1
+        try:
+            todos = get_todos_from_file()
+            # item_number = int(input("Number of the todo to edit: "))
+            item_number = int(user_action[5:])
+            item_index = item_number - 1
 
-        item_to_edit = todos[item_index]
-        print(f"Item to edit: {item_to_edit}")
-        todos[item_index] = input("Enter edited todo: ") + "\n"
-        save_todos_to_files(todos)
+            item_to_edit = todos[item_index]
+            print(f"Item to edit: {item_to_edit}")
+            todos[item_index] = input("Enter edited todo: ") + "\n"
+            save_todos_to_files(todos)
+        except ValueError:
+            print('You must enter a item number.')
+            continue
+        except IndexError:
+            print("You must enter a valid number.")
+            continue
     elif user_action.startswith('complete'):
-        todos = get_todos_from_file()
-        # item_number = int(input("What task have you completed: "))
-        item_number = int(user_action[9:])
-        item_index = item_number - 1
-        completed_item = todos.pop(item_index).strip("\n")
-        print(f'You completed {completed_item}. Remaining items:')
-        print_list(todos)
-        save_todos_to_files(todos)
+        try:
+            todos = get_todos_from_file()
+            # item_number = int(input("What task have you completed: "))
+            item_number = int(user_action[9:])
+            item_index = item_number - 1
+            completed_item = todos.pop(item_index).strip("\n")
+            print(f'You completed {completed_item}. Remaining items:')
+            print_list(todos)
+            save_todos_to_files(todos)
+        except ValueError:
+            print('You must enter a item number.')
+            continue
+        except IndexError:
+            print("You must enter a valid number.")
+            continue
     else:
         print("Hey, you entered an unknown command")
 
