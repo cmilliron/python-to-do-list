@@ -33,6 +33,7 @@ while True:
             todos.append(input_value['todo'] + "\n")
             functions.save_todos_to_files(todos)
             window['todo_list'].update(values=todos)
+            window['todo'].update('')
         case "Edit":
             if len(input_value["todo_list"]) > 0:
                 todo_to_edit = input_value["todo_list"][0]
@@ -42,6 +43,7 @@ while True:
                 todos[index] = new_todo
                 functions.save_todos_to_files(todos)
                 window['todo_list'].update(values=todos)
+                window['todo'].update('')
             else:
                 sg.Popup("You didn't pick anything to edit.")
                 continue
@@ -54,12 +56,13 @@ while True:
                 todos.remove(todo_to_complete)
                 functions.save_todos_to_files(todos)
                 window['todo_list'].update(values=todos)
+                window['todo'].update('')
             else:
                 sg.Popup("You didn't a todo to complete.")
                 continue
         case "Exit" | sg.WIN_CLOSED:
             break
-    window['todo'].update('')
+
 
 window.close()
 
