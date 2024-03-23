@@ -5,3 +5,5 @@ Make some fridge pickles.
 Eat a salad
 Make tacos for lunch
 Put meat on taco shells
+Eat tacosSetup wireless shit.test
+Trying to debug
