@@ -48,7 +48,5 @@ while True:
         case "Exit" | sg.WIN_CLOSED:
             break
 
-
-
 window.close()
 
