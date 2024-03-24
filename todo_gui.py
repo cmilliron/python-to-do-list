@@ -1,6 +1,11 @@
 import functions
 import PySimpleGUI as sg
 import time
+import os
+
+
+# Check if the to-do file exists, if not, it creats a blank one.
+functions.check_if_todos_exists()
 
 sg.theme('DarkPurple4')
 

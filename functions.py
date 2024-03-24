@@ -1,4 +1,13 @@
+import os
+
 FILE_PATH = "files/todos.txt"
+
+
+def check_if_todos_exists():
+    if not os.path.exists(FILE_PATH):
+        with open(FILE_PATH, 'w') as file:
+            pass
+
 
 def print_list(todo_list):
     # list_for_print = [item.strip('\n') for item in todo_list]
