@@ -25,8 +25,14 @@ st.write('This app is to increase your productivity')
 if len(todos) == 0:
     st.write("Nothing todo.")
 else:
-    for item in todos:
-        st.checkbox(item)
+    for index, item in enumerate(todos):
+        checkbox = st.checkbox(label=item, key=item)
+        if checkbox:
+            todos.pop(index)
+            functions.save_todos_to_files(todos)
+            del st.session_state[item]
+            st.experimental_rerun()
+
 
 st.text_input(label="Enter a todo:",
               placeholder="Add New Todo...",
