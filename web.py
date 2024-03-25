@@ -31,7 +31,7 @@ else:
             todos.pop(index)
             functions.save_todos_to_files(todos)
             del st.session_state[item]
-            st.experimental_rerun()
+            st.rerun()
 
 
 st.text_input(label="Enter a todo:",
